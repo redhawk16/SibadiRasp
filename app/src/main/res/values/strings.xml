@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Расписание</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+
+    <string name="tab_text_1">Понедельник</string>
+    <string name="tab_text_2">Вторник</string>
+    <string name="tab_text_3">Среда</string>
+    <string name="tab_text_4">Четверг</string>
+    <string name="tab_text_5">Пятница</string>
+    <string name="tab_text_6">Суббота</string>
+
+    <string name="nav_header_name">Сибирский государственный автомобильно-дорожный университет (СибАДИ)</string>
+
+    <string name="raspzan">Расписание занятий</string>
+    <string name="raspprep">Расписание преподавателей</string>
+    <string name="raspses">Расписание сессий</string>
+    <string name="ved">Ведомость успеваемости</string>
+    <string name="aboutprog">О программе</string>
+</resources>
