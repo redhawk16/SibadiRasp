@@ -27,7 +27,13 @@ public class SettingsActivity extends Activity implements CompoundButton.OnCheck
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
 
-
+        String currentTheme = settings.getString("current_theme", "DarkTheme");
+        if (currentTheme == "DarkTheme") {
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("current_theme", "DarkTheme");
+            editor.apply();
+            Utils.changeToTheme(SettingsActivity.this, 1);
+        }
         Intent intent=new Intent(SettingsActivity.this, MainActivity.class);
 
        // startActivity(intent);

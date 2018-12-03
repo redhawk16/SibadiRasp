@@ -1,12 +1,10 @@
 package com.example.pochekuev.myapplication;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,13 +21,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pochekuev.myapplication.RaspZan.Lessons;
+import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
+import com.example.pochekuev.myapplication.database.DatabaseHelper;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
@@ -45,25 +49,35 @@ public class MainActivity extends AppCompatActivity
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
+    //
+    private ListView lvLessons;
+    private ListLessonsAdapter lessonsAdapter;
+    private List<Lessons> mLessonsList;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*Change Theme */
-        /*sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String currentTheme = sharedPreferences.getString("current_theme", "BlueTheme");
-        if (currentTheme == "BlueTheme") {
-            setTheme(R.style.BlueTheme);
-        } else {
-            setTheme(R.style.DarkTheme);
-        }*/
+        super.onCreate(savedInstanceState);
 
+        // Change Theme
         Utils.onActivityCreateSetTheme(this);
-
         /*SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         int theme = sp.getInt("BlueTheme", R.style.BlueTheme);
         setTheme(theme);*/
 
-        super.onCreate(savedInstanceState);
+        //Lessons - start
         setContentView(R.layout.activity_main);
+
+        lvLessons = (ListView) findViewById(R.id.listview_raspzan);
+        mDBHelper = new DatabaseHelper(this);
+
+        mLessonsList = mDBHelper.getListLessons();
+        //Init adapter
+        lessonsAdapter = new ListLessonsAdapter(this, mLessonsList);
+        //Set adapter for listview
+        lvLessons.setAdapter(lessonsAdapter);
+        //Lessons - end
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -162,16 +176,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
@@ -188,11 +198,10 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -229,7 +238,7 @@ public class MainActivity extends AppCompatActivity
                     return rasp;
                 case 1:
                     rasp= new FRasp();
-                    String product = "";
+                    /*String product = "";
 
                     Cursor cursor = mDb.rawQuery("SELECT * FROM Disciplines", null);
                     cursor.moveToFirst();
@@ -240,7 +249,7 @@ public class MainActivity extends AppCompatActivity
                     cursor.close();
 
                     TextView textView6=(TextView) findViewById(R.id.test);
-                    textView6.setText(product);
+                    textView6.setText(product);*/
                     return rasp;
                 case 2:
                     rasp= new FRasp();

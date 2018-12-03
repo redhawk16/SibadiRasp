@@ -1,15 +1,20 @@
-package com.example.pochekuev.myapplication;
+package com.example.pochekuev.myapplication.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.pochekuev.myapplication.RaspZan.Lessons;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_NAME = "rasp.db";
@@ -96,5 +101,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (newVersion > oldVersion)
             mNeedUpdate = true;
+    }
+
+    public List<Lessons> getListLessons(){
+        Lessons lessons = null;
+        List<Lessons> lessonsList = new ArrayList<>();
+        openDataBase();
+        Cursor cursor = mDataBase.rawQuery("SELECT * FROM Schedules", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            lessons = new Lessons(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
+            lessonsList.add(lessons);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        close();
+        return lessonsList;
     }
 }

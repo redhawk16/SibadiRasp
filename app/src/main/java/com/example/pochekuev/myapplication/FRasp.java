@@ -13,8 +13,8 @@ import android.view.ViewGroup;
  */
 public class FRasp extends Fragment {
 
-
     public FRasp() {
+
         // Required empty public constructor
     }
 
