@@ -1,6 +1,7 @@
 package com.example.pochekuev.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,12 +11,15 @@ import android.widget.Switch;
 
 public class SettingsActivity extends Activity implements CompoundButton.OnCheckedChangeListener {
 
+    SharedPreferences mSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Utils.onActivityCreateSetTheme(this);
-
         super.onCreate(savedInstanceState);
+        ThemeChanger.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_settings);
+
+        mSettings = getSharedPreferences("mysett", Context.MODE_PRIVATE);
 
         Switch switch1=(Switch) findViewById(R.id.switch1);
         if(switch1!=null){
@@ -25,17 +29,15 @@ public class SettingsActivity extends Activity implements CompoundButton.OnCheck
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.clear();
+        editor.putString("THEME", "DarkTheme");
+        editor.apply();
 
-        String currentTheme = settings.getString("current_theme", "DarkTheme");
-        if (currentTheme == "DarkTheme") {
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putString("current_theme", "DarkTheme");
-            editor.apply();
-            Utils.changeToTheme(SettingsActivity.this, 1);
-        }
+        //MainActivity cls2 = new MainActivity();
+        //cls2.recreateActivity();
+        ThemeChanger.changeToTheme(SettingsActivity.this, 1);
         Intent intent=new Intent(SettingsActivity.this, MainActivity.class);
-
        // startActivity(intent);
     }
 }

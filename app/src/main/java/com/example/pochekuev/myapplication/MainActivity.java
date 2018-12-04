@@ -1,6 +1,8 @@
 package com.example.pochekuev.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -35,10 +38,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String LOG_TAG = "TAG";
     //Переменная для работы с БД
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDb;
@@ -54,14 +59,14 @@ public class MainActivity extends AppCompatActivity
     private ListLessonsAdapter lessonsAdapter;
     private List<Lessons> mLessonsList;
 
-
+    SharedPreferences mSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Change Theme
-        Utils.onActivityCreateSetTheme(this);
+        ThemeChanger.onActivityCreateSetTheme(this);
         /*SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         int theme = sp.getInt("BlueTheme", R.style.BlueTheme);
         setTheme(theme);*/
@@ -69,14 +74,16 @@ public class MainActivity extends AppCompatActivity
         //Lessons - start
         setContentView(R.layout.activity_main);
 
+        mSettings = getSharedPreferences("mysett", Context.MODE_PRIVATE);
+
         lvLessons = (ListView) findViewById(R.id.listview_raspzan);
         mDBHelper = new DatabaseHelper(this);
 
-        mLessonsList = mDBHelper.getListLessons();
+        //mLessonsList = mDBHelper.getListLessons();
         //Init adapter
-        lessonsAdapter = new ListLessonsAdapter(this, mLessonsList);
+        //lessonsAdapter = new ListLessonsAdapter(this, mLessonsList);
         //Set adapter for listview
-        lvLessons.setAdapter(lessonsAdapter);
+        //lvLessons.setAdapter(lessonsAdapter);
         //Lessons - end
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -153,15 +160,58 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /*@Override
-    public void onResume(){
-        super.onResume();
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String theme = settings.getString("current_theme", "BlueTheme");
-        if (theme != "DarkTheme"){
-            recreate();
+
+
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "onDestroy");
+    }
+
+    protected void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG, "onPause");
+    }
+
+    protected void onRestart() {
+        super.onRestart();
+
+        if(mSettings.contains("THEME")) {
+            String nametheme=mSettings.getString("THEME", "");
+            if(nametheme == "DarkTheme") {
+                ThemeChanger.changeToTheme(this, 1);
+            } else if (nametheme == "BlueTheme") {
+                ThemeChanger.changeToTheme(this, 0);
+            } else { return; }
         }
-    }*/
+
+        Log.d(LOG_TAG, "onRestart");
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(LOG_TAG, "onRestoreInstanceState");
+    }
+
+    protected void onResume() {
+        super.onResume();
+        Log.d(LOG_TAG, "onResume ");
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(LOG_TAG, "onSaveInstanceState");
+    }
+
+    protected void onStart() {
+        super.onStart();
+        Log.d(LOG_TAG, "onStart");
+    }
+
+    protected void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG, "onStop");
+    }
+
 
 
     @Override

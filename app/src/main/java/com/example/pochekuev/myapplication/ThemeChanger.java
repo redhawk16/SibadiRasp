@@ -3,7 +3,7 @@ package com.example.pochekuev.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 
-public class Utils {
+public class ThemeChanger {
     private static int sTheme;
 
     public final static int BlueTheme = 0;

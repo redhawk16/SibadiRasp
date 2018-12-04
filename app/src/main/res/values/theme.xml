@@ -5,19 +5,11 @@
         <item name="colorPrimary">#474747</item>
         <item name="colorPrimaryDark">#383838</item>
         <item name="colorAccent">#005191</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
 
     <style name="BlueTheme" parent="android:ThemeOverlay.Material.Light">
         <item name="colorPrimary">#393185</item>
         <item name="colorPrimaryDark">#002266</item>
         <item name="colorAccent">#ffb833</item>
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-    </style>
-
-    <!-- This will set the fade in animation on all your activities by default -->
-    <style name="WindowAnimationTransition">
-        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 </resources>
