@@ -160,8 +160,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
-
     protected void onDestroy() {
         super.onDestroy();
         Log.d(LOG_TAG, "onDestroy");
@@ -211,8 +209,6 @@ public class MainActivity extends AppCompatActivity
         super.onStop();
         Log.d(LOG_TAG, "onStop");
     }
-
-
 
     @Override
     public void onBackPressed() {
