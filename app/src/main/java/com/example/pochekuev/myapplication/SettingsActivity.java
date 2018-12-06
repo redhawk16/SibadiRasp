@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity implements CompoundButto
         ThemeChanger.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_settings);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mSettings = getSharedPreferences("mysett", Context.MODE_PRIVATE);
 
