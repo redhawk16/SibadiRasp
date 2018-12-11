@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="themes">
+        <item>Стандартная</item>
+        <item>Темная</item>
+    </string-array>
+
+    <string-array name="themes_value">
+        <item>Default</item>
+        <item>Dark</item>
+    </string-array>
+</resources>

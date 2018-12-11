@@ -24,14 +24,16 @@
 
     <item android:title="Прочее">
         <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_fa_cog_solid"
-                android:title="@string/action_settings" />
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/ic_fa_info_circle"
-                android:title="@string/aboutprog" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_fa_cog_solid"
+                    android:title="@string/action_settings" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_fa_info_circle"
+                    android:title="@string/aboutprog" />
+            </group>
         </menu>
     </item>
 

@@ -5,11 +5,13 @@
         <item name="colorPrimary">#474747</item>
         <item name="colorPrimaryDark">#383838</item>
         <item name="colorAccent">#005191</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <style name="BlueTheme" parent="android:ThemeOverlay.Material.Light">
         <item name="colorPrimary">#393185</item>
         <item name="colorPrimaryDark">#002266</item>
         <item name="colorAccent">#ffb833</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 </resources>

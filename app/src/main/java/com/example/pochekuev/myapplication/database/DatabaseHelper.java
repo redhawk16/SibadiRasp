@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "rasp.db";
+    private static String DB_NAME = "sample.db";
     private static String DB_PATH = "database/";
     private static final int DB_VERSION = 1;
 

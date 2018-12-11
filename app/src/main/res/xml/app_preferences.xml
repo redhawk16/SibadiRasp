@@ -1,0 +1,39 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Category 1">
+
+        <ListPreference
+            android:key="themes"
+            android:title="Выбрать тему"
+            android:summary="Устанавливает тему оформления приложения"
+            android:defaultValue="Default"
+            android:entries="@array/themes"
+            android:entryValues="@array/themes_value"
+            android:dialogTitle="Выберите тему оформления"
+            app:iconSpaceReserved="false"/>
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="key1"
+            android:summary="Switch Summary"
+            android:title="Switch Preference"
+            app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:dialogMessage="Dialog Message"
+            android:key="key2"
+            android:summary="EditText Summary"
+            android:title="EditText Preference"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="key3"
+            android:summary="CheckBox Summary"
+            android:title="CheckBox Preference"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

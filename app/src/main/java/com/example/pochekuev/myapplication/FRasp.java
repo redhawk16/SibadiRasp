@@ -6,15 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FRasp extends Fragment {
 
-    public FRasp() {
+    public String ss;
+    private TextView s1;
 
+    public FRasp() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,13 @@ public class FRasp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frasp, container, false);
+        View v = inflater.inflate(R.layout.raspzan_listview, container, false);
+
+        s1=(TextView) v.findViewById(R.id.name_disciplines);
+        s1.setText(ss);
+        return v;
+
+
     }
 
 }
