@@ -58,7 +58,7 @@ public class LessonsFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-        @Nullable
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_lessons, container, false);

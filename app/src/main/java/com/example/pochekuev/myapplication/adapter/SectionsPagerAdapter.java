@@ -5,13 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.widget.TextView;
 
 import com.example.pochekuev.myapplication.FRasp;
 import com.example.pochekuev.myapplication.R;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
 
-public class SectionsPagerAdapter extends FragmentPagerAdapter {
+public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
     private DatabaseHelper mDBHelper;
     private static SQLiteDatabase mDb;
