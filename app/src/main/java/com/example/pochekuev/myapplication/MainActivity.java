@@ -130,16 +130,10 @@ public class MainActivity extends AppCompatActivity
         if (key.equals("themes")) {
             String value = prefs.getString(key,"name");
             if (value.equals("Default")) {
-                setTheme(R.style.BlueTheme);
+                ThemeChanger.changeToTheme(this, 0);
             } else if (value.equals("Dark")) {
-                setTheme(R.style.DarkTheme);
+                ThemeChanger.changeToTheme(this, 1);
             }
-            this.finish();
-            this.startActivity(new Intent(this, this.getClass()));
-            this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.getMenu().getItem(4).setChecked(true);
-            onNavigationItemSelected(navigationView.getMenu().getItem(4));
         }
     }
 
@@ -235,6 +229,7 @@ public class MainActivity extends AppCompatActivity
         if(fragment != null){
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
             fragmentTransaction.replace(R.id.fragment_area, fragment);
             fragmentTransaction.commit();
         }
