@@ -1,51 +1,43 @@
 package com.example.pochekuev.myapplication;
 
-import android.content.Context;
-import android.content.Intent;
+/*  Author:
+*   Date: December 2018
+*   Info: Sibadi, 3-year student
+* */
+
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.TabLayout;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.ActionBarContextView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pochekuev.myapplication.RaspZan.Lessons;
 import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
+import com.example.pochekuev.myapplication.fragments.AboutFragment;
 import com.example.pochekuev.myapplication.fragments.LessonsFragment;
 import com.example.pochekuev.myapplication.fragments.SettingsFragment;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
+
+/** TODO:
+ *  1. ListView Adapter + customize
+ *  2. Database Adapter + Create DB
+ *  3. Add another NavDrawer Item's
+ * */
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SharedPreferences.OnSharedPreferenceChangeListener {
@@ -223,7 +215,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             fragment = new SettingsFragment();
         } else if (id == R.id.nav_about) {
-
+            fragment = new AboutFragment();
         }
 
         if(fragment != null){
