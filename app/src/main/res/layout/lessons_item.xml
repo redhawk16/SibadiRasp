@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time-start"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginRight="20sp" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название дисциплины"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </TableRow>
 
     <TableRow
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time-end"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Тип занятия"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </LinearLayout>
     </TableRow>
 
@@ -67,10 +67,10 @@
         <TextView
             android:id="@+id/name_teacher"
             android:layout_column="1"
-            android:layout_width="162dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="преп. Фамилия И. О"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </TableRow>
 
     <TableRow
@@ -83,6 +83,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ауд. номер аудитории"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
     </TableRow>
 </TableLayout>
