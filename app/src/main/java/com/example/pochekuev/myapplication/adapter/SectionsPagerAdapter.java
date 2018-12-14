@@ -31,7 +31,7 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
         switch (position){
             case 0:
                 FRasp rasp= new FRasp();
-                String product = "grg";
+                //String product = "grg";
 
                 /*Cursor cursor = mDb.rawQuery("SELECT * FROM Product", null);
                 cursor.moveToFirst();
@@ -46,8 +46,8 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 rasp= new FRasp();
 
-                 product = "grg";
-                 rasp.ss=product;
+                 /*product = "grg";
+                 rasp.ss=product;*/
                 return rasp;
             case 2:
                 rasp= new FRasp();

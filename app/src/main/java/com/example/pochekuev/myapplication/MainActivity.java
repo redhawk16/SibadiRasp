@@ -24,7 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.example.pochekuev.myapplication.RaspZan.Lessons;
+import com.example.pochekuev.myapplication.items.Lessons;
 import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
 import com.example.pochekuev.myapplication.fragments.AboutFragment;

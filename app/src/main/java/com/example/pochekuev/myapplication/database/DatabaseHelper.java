@@ -1,95 +1,28 @@
 package com.example.pochekuev.myapplication.database;
 
+
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.pochekuev.myapplication.RaspZan.Lessons;
+import com.example.pochekuev.myapplication.items.Lessons;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by NgocTri on 11/7/2015.
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static String DB_NAME = "sample.db";
-    private static String DB_PATH = "database/";
-    private static final int DB_VERSION = 1;
-
-    private SQLiteDatabase mDataBase;
-    private final Context mContext;
-    private boolean mNeedUpdate = false;
+    public static final String DBNAME = "govo.db";
+    public static final String DBLOCATION = "/data/data/com.example.pochekuev.myapplication/databases/";
+    private Context mContext;
+    private SQLiteDatabase mDatabase;
 
     public DatabaseHelper(Context context) {
-        super(context, DB_NAME, null, DB_VERSION);
-        if (android.os.Build.VERSION.SDK_INT >= 17)
-            DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-        else
-            DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
+        super(context, DBNAME, null, 1);
         this.mContext = context;
-
-        copyDataBase();
-
-        this.getReadableDatabase();
-    }
-
-    public void updateDataBase() throws IOException {
-        if (mNeedUpdate) {
-            File dbFile = new File(DB_PATH + DB_NAME);
-            if (dbFile.exists())
-                dbFile.delete();
-
-            copyDataBase();
-
-            mNeedUpdate = false;
-        }
-    }
-
-    private boolean checkDataBase() {
-        File dbFile = new File(DB_PATH + DB_NAME);
-        return dbFile.exists();
-    }
-
-    private void copyDataBase() {
-        if (!checkDataBase()) {
-            this.getReadableDatabase();
-            this.close();
-            try {
-                copyDBFile();
-            } catch (IOException mIOException) {
-                throw new Error("ErrorCopyingDataBase");
-            }
-        }
-    }
-
-    private void copyDBFile() throws IOException {
-        InputStream mInput = mContext.getAssets().open(DB_NAME);
-        //InputStream mInput = mContext.getResources().openRawResource(R.raw.info);
-        OutputStream mOutput = new FileOutputStream(DB_PATH + DB_NAME);
-        byte[] mBuffer = new byte[1024];
-        int mLength;
-        while ((mLength = mInput.read(mBuffer)) > 0)
-            mOutput.write(mBuffer, 0, mLength);
-        mOutput.flush();
-        mOutput.close();
-        mInput.close();
-    }
-
-    public boolean openDataBase() throws SQLException {
-        mDataBase = SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        return mDataBase != null;
-    }
-
-    @Override
-    public synchronized void close() {
-        if (mDataBase != null)
-            mDataBase.close();
-        super.close();
     }
 
     @Override
@@ -99,23 +32,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (newVersion > oldVersion)
-            mNeedUpdate = true;
+
     }
 
-    public List<Lessons> getListLessons(){
-        Lessons lessons = null;
-        List<Lessons> lessonsList = new ArrayList<>();
-        openDataBase();
-        Cursor cursor = mDataBase.rawQuery("SELECT * FROM Schedules", null);
+    public void openDatabase() {
+        String dbPath = mContext.getDatabasePath(DBNAME).getPath();
+        if(mDatabase != null && mDatabase.isOpen()) {
+            return;
+        }
+        mDatabase = SQLiteDatabase.openDatabase(dbPath, null, SQLiteDatabase.OPEN_READWRITE);
+    }
+
+    public void closeDatabase() {
+        if(mDatabase!=null) {
+            mDatabase.close();
+        }
+    }
+
+    public List<Lessons> getListProduct() {
+        Lessons product = null;
+        List<Lessons> productList = new ArrayList<>();
+        openDatabase();
+        Cursor cursor = mDatabase.rawQuery("SELECT * FROM Product", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            lessons = new Lessons(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
-            lessonsList.add(lessons);
+        while (!cursor.isAfterLast()) {
+            product = new Lessons(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+            productList.add(product);
             cursor.moveToNext();
         }
         cursor.close();
-        close();
-        return lessonsList;
+        closeDatabase();
+        return productList;
     }
 }

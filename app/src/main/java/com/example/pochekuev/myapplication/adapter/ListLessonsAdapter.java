@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.RaspZan.Lessons;
+import com.example.pochekuev.myapplication.items.Lessons;
 
 import java.util.List;
 
@@ -37,19 +37,21 @@ public class ListLessonsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = View.inflate(mContext, R.layout.raspzan_listview, null);
-        TextView time=(TextView) v.findViewById(R.id.time);
-        TextView name_disciplines=(TextView) v.findViewById(R.id.name_disciplines);
-        TextView type_disciplines=(TextView) v.findViewById(R.id.type_disciplines);
-        TextView name_prep=(TextView) v.findViewById(R.id.name_prep);
-        TextView num_cab=(TextView) v.findViewById(R.id.num_cab);
+        View v = View.inflate(mContext, R.layout.lessons_item, null);
+        TextView time_start=(TextView) v.findViewById(R.id.time_start);
+        TextView time_end=(TextView) v.findViewById(R.id.time_end);
+        TextView disciplines=(TextView) v.findViewById(R.id.name_disciplines);
+        TextView typelessons=(TextView) v.findViewById(R.id.type_disciplines);
+        TextView teachers=(TextView) v.findViewById(R.id.name_teacher);
+        TextView auditories=(TextView) v.findViewById(R.id.num_cab);
 
-        time.setText(mLessonsList.get(position).getTime());
-        name_disciplines.setText(mLessonsList.get(position).getDisciplines());
-        type_disciplines.setText(mLessonsList.get(position).getTypelessons());
-        name_prep.setText(mLessonsList.get(position).getTeachers());
-        num_cab.setText(mLessonsList.get(position).getAuditories());
+        time_start.setText(mLessonsList.get(position).getTimeStart());
+        time_end.setText(mLessonsList.get(position).getTimeEnd());
+        disciplines.setText(mLessonsList.get(position).getDisciplines());
+        typelessons.setText(mLessonsList.get(position).getTypelessons());
+        teachers.setText("преп. " + mLessonsList.get(position).getTeachers());
+        auditories.setText("ауд. " + mLessonsList.get(position).getAuditories());
 
-        return null;
+        return v;
     }
 }

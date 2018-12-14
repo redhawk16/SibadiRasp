@@ -1,20 +1,18 @@
-package com.example.pochekuev.myapplication.RaspZan;
+package com.example.pochekuev.myapplication.items;
 
 public class Lessons {
     private int id;
-    private String typeweeks; // Тип недели
-    private String dayweeks; // День недели
-    private String time; // Время занятий
+    private String time_start; // Время начала занятий
+    private String time_end; // Время конца занятий
     private String disciplines; // Название дисциплины
     private String typelessons; // Тип занятия
     private String teachers; // ФИО преподавателя
     private String auditories; // Номер аудитории
 
-    public Lessons(int id, String typeweeks, String dayweeks, String time, String disciplines, String typelessons, String teachers, String auditories) {
+    public Lessons(int id, String time_start, String time_end, String disciplines, String typelessons, String teachers, String auditories) {
         this.id = id;
-        this.typeweeks = typeweeks;
-        this.dayweeks = dayweeks;
-        this.time = time;
+        this.time_start = time_start;
+        this.time_end = time_end;
         this.disciplines = disciplines;
         this.typelessons = typelessons;
         this.teachers = teachers;
@@ -29,28 +27,20 @@ public class Lessons {
         this.id = id;
     }
 
-    public String getTypeweeks() {
-        return typeweeks;
+    public String getTimeStart() {
+        return time_start;
     }
 
-    public void setTypeweeks(String typeweeks) {
-        this.typeweeks = typeweeks;
+    public void setTimeStart(String time_start) {
+        this.time_start = time_start;
     }
 
-    public String getDayweeks() {
-        return dayweeks;
+    public String getTimeEnd() {
+        return time_end;
     }
 
-    public void setDayweeks(String dayweeks) {
-        this.dayweeks = dayweeks;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimeEnd(String time_end) {
+        this.time_end = time_end;
     }
 
     public String getDisciplines() {
