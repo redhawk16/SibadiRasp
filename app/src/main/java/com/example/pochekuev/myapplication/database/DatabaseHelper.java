@@ -49,11 +49,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<Lessons> getListProduct() {
+    public List<Lessons> getListProduct(String sqlQuery) {
         Lessons product = null;
         List<Lessons> productList = new ArrayList<>();
         openDatabase();
-        String sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
+        /*sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                 + "from Schedules "
                 + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
                 + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "
@@ -62,7 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
                 + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
                 + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
-                + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";
+                + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";*/
         Cursor cursor = mDatabase.rawQuery(sqlQuery, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

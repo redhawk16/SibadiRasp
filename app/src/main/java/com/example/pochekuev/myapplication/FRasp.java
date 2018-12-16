@@ -26,6 +26,7 @@ import java.util.Objects;
 
 public class FRasp extends Fragment {
 
+    public String sqlQuery;
     private ListView lvLessons;
     private ListLessonsAdapter adapter;
     private List<Lessons> mLessonsList;
@@ -38,17 +39,9 @@ public class FRasp extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.lessons_listview, container, false);
 
-        View v = inflater.inflate(R.layout.lessons_item, container, false);
-        View b = inflater.inflate(R.layout.lessons_listview, container, false);
-
-
-        /*s1=(TextView) v.findViewById(R.id.name_disciplines);
-        s1.setText(ss);*/
-
-
-        lvLessons = (ListView) b.findViewById(R.id.listview_product);
+        lvLessons = (ListView) v.findViewById(R.id.listview_product);
         mDBHelper = new DatabaseHelper(getContext());
 
         //Check exists database
@@ -57,18 +50,28 @@ public class FRasp extends Fragment {
             mDBHelper.getReadableDatabase();
             //Copy db
             if(copyDatabase(getContext())) {
-                Toast.makeText(getContext(), "Copy database succes", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Copy database success", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getContext(), "Copy data error", Toast.LENGTH_SHORT).show();
             }
         }
         //Get product list in db when db exists
-        mLessonsList = mDBHelper.getListProduct();
+        /*String sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
+                + "from Schedules "
+                + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
+                + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "
+                + "inner join Typelessons on Schedules.Code_Typelesson=Typelessons.Code_Typelesson "
+                + "inner join Teachers on Schedules.Code_Teacher=Teachers.Code_Teacher "
+                + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
+                + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
+                + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
+                + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";*/
+        mLessonsList = mDBHelper.getListProduct(sqlQuery);
         //Init adapter
         adapter = new ListLessonsAdapter(getContext(), mLessonsList);
         //Set adapter for listview
         lvLessons.setAdapter(adapter);
-        return b;
+        return v;
     }
 
     private boolean copyDatabase(Context context) {

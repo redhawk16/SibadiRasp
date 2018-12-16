@@ -1,5 +1,6 @@
 package com.example.pochekuev.myapplication.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -37,20 +39,30 @@ import com.example.pochekuev.myapplication.FRasp;
 import com.example.pochekuev.myapplication.MainActivity;
 import com.example.pochekuev.myapplication.MainActivity.*;
 import com.example.pochekuev.myapplication.R;
+import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
 import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
+import com.example.pochekuev.myapplication.database.DatabaseHelper;
+import com.example.pochekuev.myapplication.items.Lessons;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 public class LessonsFragment extends Fragment {
 
+    public static Object selectedWeek="нечетная неделя";
     SharedPreferences mSettings;
 
     //private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    PagerAdapter pagerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,13 +76,17 @@ public class LessonsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_lessons, container, false);
         super.onCreate(savedInstanceState);
 
+        /* ViewPager - START */
+        pagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager = (ViewPager) v.findViewById(R.id.container);
-        mViewPager.setAdapter(new SectionsPagerAdapter(getFragmentManager()));
+        mViewPager.setAdapter(pagerAdapter);
 
         TabLayout tabLayout = (TabLayout) v.findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+        /* ViewPager - END */
+
         return v;
     }
 
@@ -98,15 +114,17 @@ public class LessonsFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, typeweek);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
-        spinner.setPrompt("Title"); // заголовок
-        spinner.setSelection(0); // старт с 0 элемента(обе недели)
+        //spinner.setPrompt("Title"); // заголовок
+        spinner.setSelection(1); // старт с 0 элемента(обе недели)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // устанавливаем обработчик нажатия
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Position = " + spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                selectedWeek=spinner.getSelectedItem();
+                pagerAdapter.notifyDataSetChanged();
             }
 
             @Override

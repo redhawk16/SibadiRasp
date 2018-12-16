@@ -43,14 +43,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String LOG_TAG = "TAG";
-    //Переменная для работы с БД
-    private DatabaseHelper mDBHelper;
-    private static SQLiteDatabase mDb;
-
-    //
-    private ListView lvLessons;
-    private ListLessonsAdapter lessonsAdapter;
-    private List<Lessons> mLessonsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,17 +96,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.getMenu().getItem(0).setChecked(true);
         onNavigationItemSelected(navigationView.getMenu().getItem(0)); //Set MenuItem on ActivityStart
-
-        //Lessons - start
-       // lvLessons = (ListView) findViewById(R.id.listview_raspzan);
-        //mDBHelper = new DatabaseHelper(this);
-
-//        mLessonsList = mDBHelper.getListLessons();
-        //Init adapter
-      //  lessonsAdapter = new ListLessonsAdapter(this, mLessonsList);
-        //Set adapter for listview
-        //lvLessons.setAdapter(lessonsAdapter);
-        //Lessons - end
     }
 
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
