@@ -9,13 +9,13 @@
 
     <ListView
         android:id="@+id/listview_product"
-        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:divider="#d1d1d1"
-        android:dividerHeight="10dp"></ListView>
+        android:dividerHeight="10dp">
+    </ListView>
 
 </android.support.constraint.ConstraintLayout>
