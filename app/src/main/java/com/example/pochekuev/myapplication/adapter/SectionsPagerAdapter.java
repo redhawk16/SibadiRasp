@@ -15,8 +15,7 @@ import com.example.pochekuev.myapplication.fragments.LessonsFragment;
 
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
-    private DatabaseHelper mDBHelper;
-    private static SQLiteDatabase mDb;
+    public static String sqlQuery;
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -27,7 +26,7 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
         switch (position){
             case 0:
                 FRasp rasp= new FRasp();
-                String sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
+                sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
                         + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "

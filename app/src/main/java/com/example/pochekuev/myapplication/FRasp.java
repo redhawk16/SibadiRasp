@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
+import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
 import com.example.pochekuev.myapplication.items.Lessons;
 
@@ -41,6 +42,8 @@ public class FRasp extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.lessons_listview, container, false);
 
+        sqlQuery=SectionsPagerAdapter.sqlQuery;
+
         lvLessons = (ListView) v.findViewById(R.id.listview_product);
         mDBHelper = new DatabaseHelper(getContext());
 
@@ -66,11 +69,13 @@ public class FRasp extends Fragment {
                 + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
                 + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
                 + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";*/
+
         mLessonsList = mDBHelper.getListProduct(sqlQuery);
         //Init adapter
         adapter = new ListLessonsAdapter(getContext(), mLessonsList);
         //Set adapter for listview
         lvLessons.setAdapter(adapter);
+
         return v;
     }
 
