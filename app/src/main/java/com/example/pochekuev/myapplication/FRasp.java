@@ -33,6 +33,7 @@ public class FRasp extends Fragment {
     private ListLessonsAdapter adapter;
     private List<Lessons> mLessonsList;
     private DatabaseHelper mDBHelper;
+    private static final String LOG_TAG = "eee";
 
     public FRasp() {
     }
@@ -41,8 +42,6 @@ public class FRasp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.lessons_listview, container, false);
-
-
 
         lvLessons = (ListView) v.findViewById(R.id.listview_product);
         mDBHelper = new DatabaseHelper(getContext());
@@ -59,23 +58,16 @@ public class FRasp extends Fragment {
             }
         }
 
-        sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
-                + "from Schedules "
-                + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
-                + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "
-                + "inner join Typelessons on Schedules.Code_Typelesson=Typelessons.Code_Typelesson "
-                + "inner join Teachers on Schedules.Code_Teacher=Teachers.Code_Teacher "
-                + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
-                + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
-                + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
-                + "where Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Dayweek='Понедельник' "
-                + "order by Time_Start, Time_End";
-        mLessonsList = mDBHelper.getListProduct(sqlQuery);
-        //Init adapter
-        adapter = new ListLessonsAdapter(getContext(), mLessonsList);
-        //Set adapter for listview
-        lvLessons.setAdapter(adapter);
-
+        try {
+            mLessonsList = mDBHelper.getListProduct(sqlQuery);
+            //Init adapter
+            adapter = new ListLessonsAdapter(getContext(), mLessonsList);
+            //Set adapter for listview
+            lvLessons.setAdapter(adapter);
+        }
+        catch (Exception e){
+            Log.d("Eror", e.toString());
+        }
         return v;
     }
 

@@ -61,8 +61,8 @@ public class LessonsFragment extends Fragment {
     SharedPreferences mSettings;
 
     //private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
-    PagerAdapter pagerAdapter;
+    public static ViewPager mViewPager;
+    public static PagerAdapter pagerAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class LessonsFragment extends Fragment {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
         /* ViewPager - END */
+
         return v;
     }
 

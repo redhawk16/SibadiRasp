@@ -23,9 +23,9 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        FRasp rasp= new FRasp();
         switch (position){
             case 0:
-                FRasp rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
@@ -40,7 +40,6 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 1:
-                rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
@@ -55,7 +54,6 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                  rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 2:
-                rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
@@ -70,7 +68,6 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 3:
-                rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
@@ -85,7 +82,6 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 4:
-                rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
@@ -100,7 +96,6 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 5:
-                rasp= new FRasp();
                 sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                         + "from Schedules "
                         + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
