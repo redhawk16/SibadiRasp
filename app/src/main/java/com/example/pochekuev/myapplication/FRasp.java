@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
 import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
+import com.example.pochekuev.myapplication.fragments.LessonsFragment;
 import com.example.pochekuev.myapplication.items.Lessons;
 
 import java.io.File;
@@ -36,13 +37,12 @@ public class FRasp extends Fragment {
     public FRasp() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.lessons_listview, container, false);
 
-        sqlQuery=SectionsPagerAdapter.sqlQuery;
+
 
         lvLessons = (ListView) v.findViewById(R.id.listview_product);
         mDBHelper = new DatabaseHelper(getContext());
@@ -58,8 +58,8 @@ public class FRasp extends Fragment {
                 Toast.makeText(getContext(), "Copy data error", Toast.LENGTH_SHORT).show();
             }
         }
-        //Get product list in db when db exists
-        /*String sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
+
+        sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
                 + "from Schedules "
                 + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
                 + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "
@@ -68,8 +68,8 @@ public class FRasp extends Fragment {
                 + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
                 + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
                 + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
-                + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";*/
-
+                + "where Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Dayweek='Понедельник' "
+                + "order by Time_Start, Time_End";
         mLessonsList = mDBHelper.getListProduct(sqlQuery);
         //Init adapter
         adapter = new ListLessonsAdapter(getContext(), mLessonsList);
