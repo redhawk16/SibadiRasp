@@ -1,7 +1,9 @@
 package com.example.pochekuev.myapplication.adapter;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -37,7 +39,7 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 + "INNER JOIN Groups ON Schedules.Code_Group=Groups.Code_Group "
                 + "INNER JOIN Faculties ON Schedules.Code_Faculty=Faculties.Code_Faculty "
                 + "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' "
-                + "AND (Name_Subgroup='обе подгруппы' OR Name_Subgroup='"+LessonsFragment.selectedSubgroup+"') "
+                + "AND (Name_Subgroup='обе подгруппы' OR Num_Subgroup='"+LessonsFragment.selectedSubgroup+"') "
                 + "AND Num_Dayweek='"+position+"' ORDER BY Time_Start, Time_End";
         switch (position){
             case 0:

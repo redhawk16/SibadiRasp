@@ -117,6 +117,7 @@ public class LessonsFragment extends Fragment {
         });
 
 
+
         /* SPINNER - SUBGROUP */
         /*String[] subgroup = {"первая подгруппа", "вторая подгруппа"};
 
@@ -124,11 +125,12 @@ public class LessonsFragment extends Fragment {
         adapterSubgroup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         final Spinner spinnerSubgroup = (Spinner) rootView.findViewById(R.id.subgroup);
-        spinnerSubgroup.setAdapter(adapterSubgroup);
+        spinnerSubgroup.setAdapter(adapterSubgroup);*/
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
-        int subGroup = Integer.parseInt(sharedPreferences.getString("subgroup", "0"));
-        spinnerSubgroup.setSelection(subGroup);
+                //int subGroup = Integer.parseInt(sharedPreferences.getString("subgroup", "0"));
+        selectedSubgroup = sharedPreferences.getString("subgroup", "0");
+        /*spinnerSubgroup.setSelection(subGroup);
         spinnerSubgroup.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
