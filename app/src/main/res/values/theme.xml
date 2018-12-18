@@ -4,10 +4,10 @@
     <style name="AppTheme.DarkTheme" parent="android:ThemeOverlay.Material.Light">
         <item name="colorPrimary">#474747</item>
         <item name="colorPrimaryDark">#383838</item>
-        <item name="colorAccent">#ffb833</item>
+        <item name="colorAccent">#6200EA</item>
         <item name="colorBackgroundFragment">#424242</item>
         <item name="colorBackgroundFragmentSecond">#333333</item>
-        <item name="colorTextColor">#f4f4f4</item>
+        <item name="colorTextColor">#EEEEEE</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
