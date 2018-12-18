@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- THEME'S -->
     <string-array name="themes">
         <item>Стандартная</item>
         <item>Темная</item>
@@ -8,5 +9,49 @@
     <string-array name="themes_value">
         <item>Default</item>
         <item>Dark</item>
+    </string-array>
+
+    <!-- FACULTY'S -->
+    <string-array name="faculty">
+        <item>ИСУ</item>
+    </string-array>
+
+    <string-array name="faculty_value">
+        <item>ISU</item>
+    </string-array>
+
+    <!-- GROUP'S -->
+    <string-array name="group">
+        <item>ПИб-16И1</item>
+        <item>БИб-16И1</item>
+        <item>АСб-16И1</item>
+    </string-array>
+
+    <string-array name="group_value">
+        <item>PIb16i1</item>
+        <item>BIb16i1</item>
+        <item>ASb16i1</item>
+    </string-array>
+
+    <!-- SUBGROUPS'S -->
+    <string-array name="subgroup">
+        <item>Первая подгруппа</item>
+        <item>Вторая подгруппа</item>
+    </string-array>
+
+    <string-array name="subgroup_value">
+        <item>FirstSubGroup</item>
+        <item>SecondSubGroup</item>
+    </string-array>
+
+    <!-- LANGUAGE'S -->
+    <string-array name="language">
+        <item>Русский</item>
+        <item>Английский</item>
+    </string-array>
+
+    <string-array name="language_value">
+        <item>Russian</item>
+        <item>English</item>
     </string-array>
 </resources>

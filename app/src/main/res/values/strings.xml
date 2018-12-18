@@ -1,4 +1,5 @@
 <resources>
+    <!-- GENERAL -->
     <string name="app_name">Расписание</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,6 +8,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Настройки</string>
 
+    <!-- DAYWEEK'S -->
     <string name="tab_text_1">Понедельник</string>
     <string name="tab_text_2">Вторник</string>
     <string name="tab_text_3">Среда</string>
@@ -16,11 +18,16 @@
 
     <string name="nav_header_name">Сибирский государственный автомобильно-дорожный университет (СибАДИ)</string>
 
+    <!-- FRAGMENT'S -->
     <string name="raspzan">Расписание занятий</string>
     <string name="raspprep">Расписание преподавателей</string>
     <string name="raspses">Расписание сессий</string>
     <string name="ved">Ведомость успеваемости</string>
     <string name="aboutprog">О программе</string>
+
+    <!-- STRINGS -->
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="about_text">\tДанная программа предназначена для использования исключительно в целях помощи студентам высшего учебного заведения СибАДИ и является мобильной версией расписания на официальном сайте СибАДИ. \n\tПрограмма создана студентами 3-курса, группы ПИб-16И1: Почекуев Н. О. и Ладысь А. С. \n\tПриложение находится в тестовой версии, поэтому всю необходимую информацию по использованию приложения можно узнать у разработчиков приложения</string>
+    <string name="version">Версия: 1.0b</string>
+
 </resources>

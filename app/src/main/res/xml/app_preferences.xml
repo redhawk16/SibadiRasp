@@ -1,16 +1,60 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="Category 1">
+    <PreferenceCategory android:title="Расписание">
+
+        <ListPreference
+            android:key="faculty"
+            android:title="Факультет"
+            android:summary="Отображает расписание для выбранного факультета"
+            android:defaultValue="ISU"
+            android:entries="@array/faculty"
+            android:entryValues="@array/faculty_value"
+            android:dialogTitle="Выберите нужный факультет"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            android:key="group"
+            android:title="Группа"
+            android:summary="Отображает расписание для выбранной группы"
+            android:defaultValue="PIb16i1"
+            android:entries="@array/group"
+            android:entryValues="@array/group_value"
+            android:dialogTitle="Выберите нужную группу"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            android:key="subgroup"
+            android:title="Подгруппа"
+            android:summary="Отображает расписание для выбранной подгруппы"
+            android:defaultValue="FirstSubGroup"
+            android:entries="@array/subgroup"
+            android:entryValues="@array/subgroup_value"
+            android:dialogTitle="Выберите нужную подгруппу"
+            app:iconSpaceReserved="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Основные">
 
         <ListPreference
             android:key="themes"
-            android:title="Выбрать тему"
+            android:title="Тема оформления"
             android:summary="Устанавливает тему оформления приложения"
             android:defaultValue="Default"
             android:entries="@array/themes"
             android:entryValues="@array/themes_value"
             android:dialogTitle="Выберите тему оформления"
+            app:iconSpaceReserved="false"/>
+
+        <ListPreference
+            android:key="language"
+            android:title="Язык"
+            android:summary="Устанавливает основной язык приложения"
+            android:defaultValue="Russian"
+            android:entries="@array/language"
+            android:entryValues="@array/language_value"
+            android:dialogTitle="Выберите основной язык приложения"
             app:iconSpaceReserved="false"/>
 
         <SwitchPreference

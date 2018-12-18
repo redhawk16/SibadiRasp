@@ -9,13 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
-import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
 import com.example.pochekuev.myapplication.database.DatabaseHelper;
-import com.example.pochekuev.myapplication.fragments.LessonsFragment;
 import com.example.pochekuev.myapplication.items.Lessons;
 
 import java.io.File;
@@ -39,9 +36,15 @@ public class FRasp extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.lessons_listview, container, false);
+        super.onCreate(savedInstanceState);
 
         lvLessons = (ListView) v.findViewById(R.id.listview_product);
         mDBHelper = new DatabaseHelper(getContext());
@@ -51,11 +54,7 @@ public class FRasp extends Fragment {
         if(!database.exists()) {
             mDBHelper.getReadableDatabase();
             //Copy db
-            if(copyDatabase(getContext())) {
-                Toast.makeText(getContext(), "Copy database success", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getContext(), "Copy data error", Toast.LENGTH_SHORT).show();
-            }
+            if(!copyDatabase(getContext())) Toast.makeText(getContext(), "Ошибка! БД не найдена.", Toast.LENGTH_SHORT).show();
         }
 
         try {

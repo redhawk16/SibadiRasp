@@ -4,12 +4,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.example.pochekuev.myapplication.MainActivity;
 import com.example.pochekuev.myapplication.R;
 import com.example.pochekuev.myapplication.adapter.BasePreferenceFragmentCompat;
 
@@ -21,19 +22,17 @@ public class SettingsFragment extends BasePreferenceFragmentCompat {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
-        try {
-            Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-            toolbar.setTitle("Настройки");
-        }
-        catch (Exception e){
-            Log.d("Error", e.toString());
-        }
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String s) {
         setPreferencesFromResource(R.xml.app_preferences, s);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Настройки");
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override

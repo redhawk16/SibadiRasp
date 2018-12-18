@@ -1,24 +1,14 @@
 package com.example.pochekuev.myapplication.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,38 +17,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.pochekuev.myapplication.FRasp;
-import com.example.pochekuev.myapplication.MainActivity;
-import com.example.pochekuev.myapplication.MainActivity.*;
 import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
 import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
-import com.example.pochekuev.myapplication.database.DatabaseHelper;
-import com.example.pochekuev.myapplication.items.Lessons;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
 public class LessonsFragment extends Fragment {
 
+    public static boolean startActivity = false;
     public static Object selectedWeek="нечетная неделя";
-    SharedPreferences mSettings;
+    SharedPreferences sharedPreferences;
 
     //private SectionsPagerAdapter mSectionsPagerAdapter;
     public static ViewPager mViewPager;
@@ -75,6 +49,8 @@ public class LessonsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_lessons, container, false);
         super.onCreate(savedInstanceState);
+
+        startActivity = true;
 
         /* ViewPager - START */
         pagerAdapter = new SectionsPagerAdapter(getFragmentManager());
@@ -118,13 +94,19 @@ public class LessonsFragment extends Fragment {
         spinner.setAdapter(adapter);
 
         //spinner.setPrompt("Title"); // заголовок
-        spinner.setSelection(1); // старт с 0 элемента(обе недели)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
+        int typeWeek = sharedPreferences.getInt("spinner", 1);
+        spinner.setSelection(typeWeek); // старт с 0 элемента(нечетная неделя)
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // устанавливаем обработчик нажатия
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "Position = " + spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Position = " + spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
                 selectedWeek=spinner.getSelectedItem();
                 pagerAdapter.notifyDataSetChanged();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("spinner", spinner.getSelectedItemPosition());
+                editor.apply();
             }
 
             @Override

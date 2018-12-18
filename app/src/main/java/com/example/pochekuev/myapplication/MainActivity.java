@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String LOG_TAG = "TAG";
+    public static NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,9 @@ public class MainActivity extends AppCompatActivity
         prefs.registerOnSharedPreferenceChangeListener(this);
 
         if (value.equals("Default")) {
-            setTheme(R.style.BlueTheme);
+            setTheme(R.style.AppTheme_BlueTheme);
         } else if (value.equals("Dark")) {
-            setTheme(R.style.DarkTheme);
+            setTheme(R.style.AppTheme_DarkTheme);
         }
         /** Load UI Theme - END **/
 
@@ -91,23 +92,30 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.getMenu().getItem(0).setChecked(true);
-        onNavigationItemSelected(navigationView.getMenu().getItem(0)); //Set MenuItem on ActivityStart
+        if(!LessonsFragment.startActivity) {
+            setSelectedItemNavDrawer(0);
+        }
     }
 
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         // Проверять общие настройки, ключевые параметры и изменять UI
         if (key.equals("themes")) {
             String value = prefs.getString(key,"name");
+            LessonsFragment.startActivity = false;
             if (value.equals("Default")) {
                 ThemeChanger.changeToTheme(this, 0);
             } else if (value.equals("Dark")) {
                 ThemeChanger.changeToTheme(this, 1);
             }
         }
+    }
+
+    public void setSelectedItemNavDrawer(int position){
+        navigationView.getMenu().getItem(position).setChecked(true);
+        onNavigationItemSelected(navigationView.getMenu().getItem(position)); //Set MenuItem on ActivityStart
     }
 
     protected void onDestroy() {

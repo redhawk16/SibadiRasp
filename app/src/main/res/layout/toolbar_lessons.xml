@@ -32,7 +32,7 @@
                             android:id="@+id/today"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="10sp"
+                            android:layout_marginRight="5sp"
                             android:text="Today"
                             android:textSize="15sp" />
 

@@ -26,10 +26,10 @@ public class ThemeChanger {
         switch (sTheme) {
             default:
             case BlueTheme:
-                activity.setTheme(R.style.BlueTheme);
+                activity.setTheme(R.style.AppTheme_BlueTheme);
                 break;
             case DarkTheme:
-                activity.setTheme(R.style.DarkTheme);
+                activity.setTheme(R.style.AppTheme_DarkTheme);
                 break;
         }
     }
