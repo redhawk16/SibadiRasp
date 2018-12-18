@@ -65,7 +65,7 @@ public class FRasp extends Fragment {
             lvLessons.setAdapter(adapter);
         }
         catch (Exception e){
-            Log.d("Eror", e.toString());
+            Log.d("Error", e.toString());
         }
         return v;
     }
