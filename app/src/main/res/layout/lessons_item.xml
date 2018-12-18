@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="#FFFFFF"
+    android:background="?attr/colorBackgroundFragmentSecond"
     android:paddingBottom="5dp"
     android:paddingLeft="15dp"
     android:paddingRight="15dp"
@@ -25,7 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Time-start"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="?attr/colorTextColor"/>
 
         </TableRow>
 
@@ -39,7 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Time-end"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="?attr/colorTextColor"/>
 
         </TableRow>
 
@@ -60,7 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Название дисциплины"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="?attr/colorTextColor"/>
         </TableRow>
 
         <TableRow
@@ -94,7 +97,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="преп. Фамилия И. О"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="?attr/colorTextColor"/>
         </TableRow>
 
         <TableRow
@@ -107,7 +111,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ауд. номер аудитории"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:textColor="?attr/colorTextColor"/>
         </TableRow>
 
     </TableLayout>

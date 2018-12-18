@@ -6,6 +6,9 @@
         <item name="colorPrimary">#393185</item>
         <item name="colorPrimaryDark">#002266</item>
         <item name="colorAccent">#ffb833</item>
+        <item name="colorBackgroundFragment">#d1d1d1</item>
+        <item name="colorBackgroundFragmentSecond">#ffffff</item>
+        <item name="colorTextColor">#d1d1d1</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 

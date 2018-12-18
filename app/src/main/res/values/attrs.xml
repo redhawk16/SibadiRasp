@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Your View -->
+    <declare-styleable name="YourView">
+        <attr name="tint_color" format="reference" /> <!-- Important -->
+        <attr name="ripple_drawable" format="reference" /> <!-- Important -->
+        <attr name="colorBackgroundFragment" format="color"/>
+        <attr name="colorBackgroundFragmentSecond" format="color"/>
+        <attr name="colorTextColor" format="color"/>
+    </declare-styleable>
+</resources>

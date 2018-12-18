@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#d1d1d1">
+    android:background="?attr/colorBackgroundFragment">
 
     <ListView
         android:id="@+id/listview_product"
@@ -15,7 +15,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:divider="#d1d1d1"
+        android:divider="?attr/colorBackgroundFragment"
         android:dividerHeight="10dp">
     </ListView>
 

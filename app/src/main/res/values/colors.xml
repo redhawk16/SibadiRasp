@@ -3,4 +3,7 @@
     <color name="colorPrimary">?attr/colorPrimary</color>
     <color name="colorPrimaryDark">?attr/colorPrimaryDark</color>
     <color name="colorAccent">?attr/colorAccent</color>
+    <color name="colorBackgroundFragment">?attr/colorBackgroundFragment</color>
+    <color name="colorBackgroundFragmentSecond">?attr/colorBackgroundFragmentSecond</color>
+    <color name="colorTextColor">?attr/colorTextColor</color>
 </resources>
