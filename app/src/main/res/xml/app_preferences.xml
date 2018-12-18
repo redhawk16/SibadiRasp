@@ -6,7 +6,7 @@
         <ListPreference
             android:key="faculty"
             android:title="Факультет"
-            android:summary="Отображает расписание для выбранного факультета"
+            android:summary="Выбрать факультет"
             android:defaultValue="ISU"
             android:entries="@array/faculty"
             android:entryValues="@array/faculty_value"
@@ -16,7 +16,7 @@
         <ListPreference
             android:key="group"
             android:title="Группа"
-            android:summary="Отображает расписание для выбранной группы"
+            android:summary="Выбрать группу"
             android:defaultValue="PIb16i1"
             android:entries="@array/group"
             android:entryValues="@array/group_value"
@@ -26,8 +26,8 @@
         <ListPreference
             android:key="subgroup"
             android:title="Подгруппа"
-            android:summary="Отображает расписание для выбранной подгруппы"
-            android:defaultValue="FirstSubGroup"
+            android:summary="Выбрать подгруппу"
+            android:defaultValue="1"
             android:entries="@array/subgroup"
             android:entryValues="@array/subgroup_value"
             android:dialogTitle="Выберите нужную подгруппу"

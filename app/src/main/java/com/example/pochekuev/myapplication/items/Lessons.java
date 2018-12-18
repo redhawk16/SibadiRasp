@@ -8,6 +8,9 @@ public class Lessons {
     private String typelessons; // Тип занятия
     private String teachers; // ФИО преподавателя
     private String auditories; // Номер аудитории
+    private String subgroups; // подгруппа
+    private String groups; // группа
+    private String faculty; // факультет
 
     public Lessons(int id, String time_start, String time_end, String disciplines, String typelessons, String teachers, String auditories) {
         this.id = id;
@@ -74,4 +77,5 @@ public class Lessons {
     public void setAuditories(String auditories) {
         this.auditories = auditories;
     }
+
 }

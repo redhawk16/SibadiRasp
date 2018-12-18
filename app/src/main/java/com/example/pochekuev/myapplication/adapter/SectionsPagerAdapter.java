@@ -32,14 +32,15 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 + "inner join Teachers on Schedules.Code_Teacher=Teachers.Code_Teacher "
                 + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
                 + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
-                + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek ";
+                + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
+                + "inner join Subgroups on Schedules.Code_Subgroup=Subgroups.Code_Subgroup ";
         switch (position){
             case 0:
-                sqlQuery += "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Dayweek='Понедельник' ORDER BY Time_Start, Time_End";
+                sqlQuery += "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Subgroup='обе подгруппы' AND Name_Subgroup='"+LessonsFragment.selectedSubgroup+"' AND Name_Dayweek='Понедельник' ORDER BY Time_Start, Time_End";
                 rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 1:
-                sqlQuery += "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Dayweek='Вторник' ORDER BY Time_Start, Time_End";
+                sqlQuery += "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' AND Name_Subgroup='обе подгруппы' AND Name_Subgroup='"+LessonsFragment.selectedSubgroup+"' AND Name_Dayweek='Вторник' ORDER BY Time_Start, Time_End";
                  rasp.sqlQuery=sqlQuery;
                 return rasp;
             case 2:

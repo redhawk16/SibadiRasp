@@ -18,15 +18,11 @@
                             android:id="@+id/textView16"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Расписание"
+                            android:text="Расписание:"
                             android:textColor="#fff"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                            android:textStyle="bold"
+                            android:layout_marginRight="5sp"/>
 
                         <TextView
                             android:id="@+id/today"
@@ -35,9 +31,22 @@
                             android:layout_marginRight="5sp"
                             android:text="Today"
                             android:textSize="15sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                         <Spinner
                             android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="0sp"
+                            android:paddingEnd="35sp"
+                            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                        <Spinner
+                            android:id="@+id/subgroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="0sp"
