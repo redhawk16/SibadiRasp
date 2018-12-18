@@ -116,8 +116,9 @@ public class LessonsFragment extends Fragment {
             }
         });
 
+
         /* SPINNER - SUBGROUP */
-        String[] subgroup = {"первая подгруппа", "вторая подгруппа"};
+        /*String[] subgroup = {"первая подгруппа", "вторая подгруппа"};
 
         ArrayAdapter<String> adapterSubgroup = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, subgroup);
         adapterSubgroup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -142,7 +143,9 @@ public class LessonsFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
-        });
+        });*/
+
+
     }
 
     @Override
