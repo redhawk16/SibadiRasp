@@ -7,5 +7,6 @@
         <attr name="colorBackgroundFragment" format="color"/>
         <attr name="colorBackgroundFragmentSecond" format="color"/>
         <attr name="colorTextColor" format="color"/>
+        <attr name="colorNavDrawSelect" format="color"/>
     </declare-styleable>
 </resources>

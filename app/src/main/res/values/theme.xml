@@ -8,8 +8,9 @@
         <item name="colorBackgroundFragment">#424242</item>
         <item name="colorBackgroundFragmentSecond">#333333</item>
         <item name="colorTextColor">#EEEEEE</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-        <item name="android:colorBackground">#333333</item>
+        <item name="android:colorBackground">?attr/colorBackgroundFragmentSecond</item>
+        <item name="android:windowBackground">?attr/colorBackgroundFragmentSecond</item>
+        <item name="colorNavDrawSelect">#7019e8</item>
     </style>
 
     <style name="AppTheme.BlueTheme" parent="android:ThemeOverlay.Material.Light">
@@ -18,15 +19,17 @@
         <item name="colorAccent">#ffb833</item>
         <item name="colorBackgroundFragment">#d1d1d1</item>
         <item name="colorBackgroundFragmentSecond">#ffffff</item>
-        <item name="colorTextColor">#828282</item>
+        <item name="colorTextColor">?android:attr/textColorSecondary</item>
+        <item name="colorNavDrawSelect">?attr/colorPrimary</item>
     </style>
 
     <style name="AppTheme.VioletTheme" parent="android:ThemeOverlay.Material.Light">
-        <item name="colorPrimary">#393185</item>
-        <item name="colorPrimaryDark">#000063</item>
-        <item name="colorAccent">#6746c3</item>
+        <item name="colorPrimary">#46008d</item>
+        <item name="colorPrimaryDark">#2e005e</item>
+        <item name="colorAccent">#7b00bf</item>
         <item name="colorBackgroundFragment">#d1d1d1</item>
         <item name="colorBackgroundFragmentSecond">#ffffff</item>
-        <item name="colorTextColor">#828282</item>
+        <item name="colorTextColor">?android:attr/textColorSecondary</item>
+        <item name="colorNavDrawSelect">?attr/colorPrimary</item>
     </style>
 </resources>

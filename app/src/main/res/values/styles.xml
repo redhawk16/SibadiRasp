@@ -8,7 +8,8 @@
         <item name="colorAccent">#ffb833</item>
         <item name="colorBackgroundFragment">#d1d1d1</item>
         <item name="colorBackgroundFragmentSecond">#ffffff</item>
-        <item name="colorTextColor">#d1d1d1</item>
+        <item name="colorTextColor">?android:attr/textColorSecondary</item>
+        <item name="colorNavDrawSelect">?attr/colorPrimary</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
@@ -20,8 +21,4 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="DarkTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="DarkTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 </resources>

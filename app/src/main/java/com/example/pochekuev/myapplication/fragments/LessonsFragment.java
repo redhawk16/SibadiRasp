@@ -11,6 +11,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -86,36 +87,41 @@ public class LessonsFragment extends Fragment {
         TextView today = (TextView) rootView.findViewById(R.id.today);
         today.setText("Сегодня " + sdf.format(date) + ",");
 
-        /* SPINNER - тип недели*/
-        String[] typeweek = {"нечетная неделя", "четная неделя"};
+        try {
 
-        ArrayAdapter<String> adapterTypeeweek = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, typeweek);
-        adapterTypeeweek.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            /* SPINNER - тип недели*/
+            String[] typeweek = {"нечетная неделя", "четная неделя"};
 
-        final Spinner spinnerTypeeweek = (Spinner) rootView.findViewById(R.id.spinner);
-        spinnerTypeeweek.setAdapter(adapterTypeeweek);
+            ArrayAdapter<String> adapterTypeeweek = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, typeweek);
+            adapterTypeeweek.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //spinner.setPrompt("Title"); // заголовок
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
-        int typeWeek = sharedPreferences.getInt("spinner", 1);
-        spinnerTypeeweek.setSelection(typeWeek); // старт с 0 элемента(нечетная неделя)
-        spinnerTypeeweek.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // устанавливаем обработчик нажатия
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(getContext(), "Position = " + spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
-                selectedWeek=spinnerTypeeweek.getSelectedItem();
-                pagerAdapter.notifyDataSetChanged();
+            final Spinner spinnerTypeeweek = (Spinner) rootView.findViewById(R.id.spinner);
+            spinnerTypeeweek.setAdapter(adapterTypeeweek);
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("spinner", spinnerTypeeweek.getSelectedItemPosition());
-                editor.apply();
-            }
+            //spinner.setPrompt("Title"); // заголовок
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
+            int typeWeek = sharedPreferences.getInt("spinner", 0);
+            spinnerTypeeweek.setSelection(typeWeek); // старт с 0 элемента(нечетная неделя)
+            spinnerTypeeweek.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // устанавливаем обработчик нажатия
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    //Toast.makeText(getContext(), "Position = " + spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                    selectedWeek = spinnerTypeeweek.getSelectedItem();
+                    pagerAdapter.notifyDataSetChanged();
 
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-            }
-        });
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("spinner", spinnerTypeeweek.getSelectedItemPosition());
+                    editor.apply();
+                }
 
+                @Override
+                public void onNothingSelected(AdapterView<?> arg0) {
+                }
+            });
+        }
+        catch (Exception e){
+            Log.d("Error", e.toString());
+        }
 
 
         /* SPINNER - SUBGROUP */
