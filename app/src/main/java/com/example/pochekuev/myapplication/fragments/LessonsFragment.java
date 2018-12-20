@@ -87,7 +87,7 @@ public class LessonsFragment extends Fragment {
         today.setText("Сегодня " + sdf.format(date) + ",");
 
         /* SPINNER - тип недели*/
-        String[] typeweek = {"обе недели", "нечетная неделя", "четная неделя"};
+        String[] typeweek = {"нечетная неделя", "четная неделя"};
 
         ArrayAdapter<String> adapterTypeeweek = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, typeweek);
         adapterTypeeweek.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -4,11 +4,13 @@
     <string-array name="themes">
         <item>Стандартная</item>
         <item>Темная</item>
+        <item>Фиолетовая</item>
     </string-array>
 
     <string-array name="themes_value">
         <item>Default</item>
         <item>Dark</item>
+        <item>Violet</item>
     </string-array>
 
     <!-- FACULTY'S -->

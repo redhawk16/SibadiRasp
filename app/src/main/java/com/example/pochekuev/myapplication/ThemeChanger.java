@@ -14,6 +14,7 @@ public class ThemeChanger {
 
     public final static int BlueTheme = 0;
     public final static int DarkTheme = 1;
+    public final static int VioletTheme = 2;
 
     public static void changeToTheme(Activity activity, int theme) {
         sTheme = theme;
@@ -29,7 +30,10 @@ public class ThemeChanger {
                 activity.setTheme(R.style.AppTheme_BlueTheme);
                 break;
             case DarkTheme:
-                activity.setTheme(R.style.AppTheme_DarkTheme);
+                activity.setTheme(R.style.DarkTheme);
+                break;
+            case VioletTheme:
+                activity.setTheme(R.style.AppTheme_VioletTheme);
                 break;
         }
     }

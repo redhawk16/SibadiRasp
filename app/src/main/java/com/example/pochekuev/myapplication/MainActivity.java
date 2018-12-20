@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity
         if (value.equals("Default")) {
             setTheme(R.style.AppTheme_BlueTheme);
         } else if (value.equals("Dark")) {
-            setTheme(R.style.AppTheme_DarkTheme);
+            setTheme(R.style.DarkTheme);
+        }else if (value.equals("Violet")) {
+            setTheme(R.style.AppTheme_VioletTheme);
         }
         /** Load UI Theme - END **/
 
@@ -109,6 +111,8 @@ public class MainActivity extends AppCompatActivity
                 ThemeChanger.changeToTheme(this, 0);
             } else if (value.equals("Dark")) {
                 ThemeChanger.changeToTheme(this, 1);
+            } else if (value.equals("Violet")) {
+                ThemeChanger.changeToTheme(this, 2);
             }
         }
     }

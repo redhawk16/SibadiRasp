@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Themes UI -->
-    <style name="AppTheme.DarkTheme" parent="android:ThemeOverlay.Material.Light">
+    <style name="DarkTheme" parent="ThemeOverlay.AppCompat.Dark">
         <item name="colorPrimary">#474747</item>
         <item name="colorPrimaryDark">#383838</item>
         <item name="colorAccent">#6200EA</item>
@@ -9,6 +9,7 @@
         <item name="colorBackgroundFragmentSecond">#333333</item>
         <item name="colorTextColor">#EEEEEE</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:colorBackground">#333333</item>
     </style>
 
     <style name="AppTheme.BlueTheme" parent="android:ThemeOverlay.Material.Light">
@@ -18,6 +19,14 @@
         <item name="colorBackgroundFragment">#d1d1d1</item>
         <item name="colorBackgroundFragmentSecond">#ffffff</item>
         <item name="colorTextColor">#828282</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+    </style>
+
+    <style name="AppTheme.VioletTheme" parent="android:ThemeOverlay.Material.Light">
+        <item name="colorPrimary">#393185</item>
+        <item name="colorPrimaryDark">#000063</item>
+        <item name="colorAccent">#6746c3</item>
+        <item name="colorBackgroundFragment">#d1d1d1</item>
+        <item name="colorBackgroundFragmentSecond">#ffffff</item>
+        <item name="colorTextColor">#828282</item>
     </style>
 </resources>

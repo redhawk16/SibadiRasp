@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">?attr/colorPrimary</color>
-    <color name="colorPrimaryDark">?attr/colorPrimaryDark</color>
-    <color name="colorAccent">?attr/colorAccent</color>
-    <color name="colorBackgroundFragment">?attr/colorBackgroundFragment</color>
-    <color name="colorBackgroundFragmentSecond">?attr/colorBackgroundFragmentSecond</color>
-    <color name="colorTextColor">?attr/colorTextColor</color>
+    <color name="colorPrimary">#393185</color>
+    <color name="colorPrimaryDark">#002266</color>
+    <color name="colorAccent">#ffb833</color>
+    <color name="colorBackgroundFragment">#d1d1d1</color>
+    <color name="colorBackgroundFragmentSecond">#ffffff</color>
+    <color name="colorTextColor">#828282</color>
 </resources>
