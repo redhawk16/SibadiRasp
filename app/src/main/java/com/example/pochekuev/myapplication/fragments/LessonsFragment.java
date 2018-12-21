@@ -176,7 +176,7 @@ public class LessonsFragment extends Fragment {
             case "Thu": dayweek = 3; break; // Четверг
             case "Fri": dayweek = 4; break; // Пятница
             case "Sat": dayweek = 5; break; // Суббота
-            case "Sun": dayweek = 5; break; // Воскресенье
+            case "Sun": dayweek = 0; break; // Воскресенье
             default: dayweek = 0; break;
         }
         return dayweek;
