@@ -8,8 +8,6 @@
         <item name="colorBackgroundFragment">#424242</item>
         <item name="colorBackgroundFragmentSecond">#333333</item>
         <item name="colorTextColor">#EEEEEE</item>
-        <item name="android:colorBackground">?attr/colorBackgroundFragmentSecond</item>
-        <item name="android:windowBackground">?attr/colorBackgroundFragmentSecond</item>
         <item name="colorNavDrawSelect">#7019e8</item>
     </style>
 
