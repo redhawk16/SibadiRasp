@@ -7,10 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,6 +34,7 @@ public class LessonsFragment extends Fragment {
     public static boolean startActivity = false;
     public static Object selectedWeek = "нечетная неделя";
     public static Object selectedSubgroup = "первая подгруппа";
+    public static int dayweek = 0;
     SharedPreferences sharedPreferences;
 
     public static ViewPager mViewPager;
@@ -53,8 +52,6 @@ public class LessonsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_lessons, container, false);
         super.onCreate(savedInstanceState);
 
-        startActivity = true;
-
         /* ViewPager - START */
         pagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager = (ViewPager) v.findViewById(R.id.container);
@@ -65,6 +62,11 @@ public class LessonsFragment extends Fragment {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
         /* ViewPager - END */
+
+        //if (!startActivity) {}
+        mViewPager.setCurrentItem(getNumDayOfWeek());
+
+        startActivity = true;
 
         return v;
     }
@@ -161,5 +163,22 @@ public class LessonsFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
         inflater.inflate(R.menu.toolbar_lessons, menu);
+    }
+
+    public int getNumDayOfWeek(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EE", Locale.US);
+        Date date = new Date();
+        String tmp = simpleDateFormat.format(date);
+        switch (tmp){
+            case "Mon": dayweek = 0; break; // Понедельник
+            case "Tue": dayweek = 1; break; // Вторник
+            case "Wed": dayweek = 2; break; // Среда
+            case "Thu": dayweek = 3; break; // Четверг
+            case "Fri": dayweek = 4; break; // Пятница
+            case "Sat": dayweek = 5; break; // Суббота
+            case "Sun": dayweek = 5; break; // Воскресенье
+            default: dayweek = 0; break;
+        }
+        return dayweek;
     }
 }

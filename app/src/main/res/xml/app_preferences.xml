@@ -57,6 +57,7 @@
             android:dialogTitle="Выберите основной язык приложения"
             app:iconSpaceReserved="false"/>
 
+        <!--
         <SwitchPreference
             android:defaultValue="true"
             android:key="key1"
@@ -78,6 +79,8 @@
             android:summary="CheckBox Summary"
             android:title="CheckBox Preference"
             app:iconSpaceReserved="false" />
+
+        -->
     </PreferenceCategory>
 
 </PreferenceScreen>
