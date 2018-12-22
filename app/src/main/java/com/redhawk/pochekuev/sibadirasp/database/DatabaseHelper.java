@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication.database;
+package com.redhawk.pochekuev.sibadirasp.database;
 
 
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.pochekuev.myapplication.items.Lessons;
+import com.redhawk.pochekuev.sibadirasp.items.Lessons;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "info.db";
-    public static final String DBLOCATION = "/data/data/com.example.pochekuev.myapplication/databases/";
+    public static final String DBLOCATION = "/data/data/com.redhawk.pochekuev.sibadirasp/databases/";
     private Context mContext;
     private SQLiteDatabase mDatabase;
 
@@ -53,16 +53,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Lessons product = null;
         List<Lessons> productList = new ArrayList<>();
         openDatabase();
-        /*sqlQuery = "select  _id, Time_Start, Time_End, Name_Discipline, Name_Typelesson, Name_Teacher, Number_Auditory "
-                + "from Schedules "
-                + "inner join Lessons on Schedules.Number_Lesson=Lessons.Number_Lesson "
-                + "inner join Disciplines on Schedules.Code_Discipline=Disciplines.Code_Discipline "
-                + "inner join Typelessons on Schedules.Code_Typelesson=Typelessons.Code_Typelesson "
-                + "inner join Teachers on Schedules.Code_Teacher=Teachers.Code_Teacher "
-                + "inner join Auditories on Schedules.Code_Auditory=Auditories.Code_Auditory "
-                + "inner join Typeweeks on Schedules.Code_Typeweek=Typeweeks.Code_Typeweek "
-                + "inner join Dayweeks on Schedules.Code_Dayweek=Dayweeks.Code_Dayweek "
-                + "where Name_Typeweek='Нечетная' AND Name_Dayweek='Понедельник'";*/
         Cursor cursor = mDatabase.rawQuery(sqlQuery, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

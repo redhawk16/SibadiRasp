@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication;
+package com.redhawk.pochekuev.sibadirasp;
 
 
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
-import com.example.pochekuev.myapplication.database.DatabaseHelper;
-import com.example.pochekuev.myapplication.items.Lessons;
+import com.redhawk.pochekuev.sibadirasp.adapter.ListLessonsAdapter;
+import com.redhawk.pochekuev.sibadirasp.database.DatabaseHelper;
+import com.redhawk.pochekuev.sibadirasp.items.Lessons;
 
 import java.io.File;
 import java.io.FileOutputStream;

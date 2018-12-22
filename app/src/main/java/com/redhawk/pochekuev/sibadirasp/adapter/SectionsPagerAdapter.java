@@ -1,19 +1,11 @@
-package com.example.pochekuev.myapplication.adapter;
+package com.redhawk.pochekuev.sibadirasp.adapter;
 
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.widget.TextView;
 
-import com.example.pochekuev.myapplication.FRasp;
-import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.database.DatabaseHelper;
-import com.example.pochekuev.myapplication.fragments.LessonsFragment;
+import com.redhawk.pochekuev.sibadirasp.FRasp;
+import com.redhawk.pochekuev.sibadirasp.fragments.LessonsFragment;
 
 public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication;
+package com.redhawk.pochekuev.sibadirasp;
 
 import org.junit.Test;
 

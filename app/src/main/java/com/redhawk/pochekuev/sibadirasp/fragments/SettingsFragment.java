@@ -1,7 +1,6 @@
-package com.example.pochekuev.myapplication.fragments;
+package com.redhawk.pochekuev.sibadirasp.fragments;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +10,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pochekuev.myapplication.MainActivity;
-import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.adapter.BasePreferenceFragmentCompat;
+import com.redhawk.pochekuev.sibadirasp.MainActivity;
+import com.redhawk.pochekuev.sibadirasp.R;
+import com.redhawk.pochekuev.sibadirasp.adapter.BasePreferenceFragmentCompat;
 
 public class SettingsFragment extends BasePreferenceFragmentCompat {
 

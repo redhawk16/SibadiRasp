@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication.fragments;
+package com.redhawk.pochekuev.sibadirasp.fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,8 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.adapter.SectionsPagerAdapter;
+import com.redhawk.pochekuev.sibadirasp.R;
+import com.redhawk.pochekuev.sibadirasp.adapter.SectionsPagerAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

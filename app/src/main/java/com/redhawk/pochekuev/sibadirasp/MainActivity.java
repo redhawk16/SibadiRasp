@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication;
+package com.redhawk.pochekuev.sibadirasp;
 
 /*  Author:
 *   Date: December 2018
@@ -6,7 +6,6 @@ package com.example.pochekuev.myapplication;
 * */
 
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
@@ -23,16 +22,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 
-import com.example.pochekuev.myapplication.items.Lessons;
-import com.example.pochekuev.myapplication.adapter.ListLessonsAdapter;
-import com.example.pochekuev.myapplication.database.DatabaseHelper;
-import com.example.pochekuev.myapplication.fragments.AboutFragment;
-import com.example.pochekuev.myapplication.fragments.LessonsFragment;
-import com.example.pochekuev.myapplication.fragments.SettingsFragment;
-
-import java.util.List;
+import com.redhawk.pochekuev.sibadirasp.fragments.AboutFragment;
+import com.redhawk.pochekuev.sibadirasp.fragments.LessonsFragment;
+import com.redhawk.pochekuev.sibadirasp.fragments.SettingsFragment;
 
 /** TODO:
  *  1. ListView Adapter + customize

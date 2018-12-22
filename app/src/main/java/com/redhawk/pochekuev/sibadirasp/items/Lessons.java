@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication.items;
+package com.redhawk.pochekuev.sibadirasp.items;
 
 public class Lessons {
     private int id;

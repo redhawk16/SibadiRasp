@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication.adapter;
+package com.redhawk.pochekuev.sibadirasp.adapter;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
@@ -12,7 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pochekuev.myapplication.R;
+import com.redhawk.pochekuev.sibadirasp.R;
 
 public abstract class BasePreferenceFragmentCompat extends PreferenceFragmentCompat {
     @Override

@@ -1,4 +1,4 @@
-package com.example.pochekuev.myapplication.fragments;
+package com.redhawk.pochekuev.sibadirasp.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pochekuev.myapplication.MainActivity;
-import com.example.pochekuev.myapplication.R;
+import com.redhawk.pochekuev.sibadirasp.MainActivity;
+import com.redhawk.pochekuev.sibadirasp.R;
 
 public class AboutFragment extends Fragment {
 

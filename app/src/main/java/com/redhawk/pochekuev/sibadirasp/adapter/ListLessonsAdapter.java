@@ -1,14 +1,13 @@
-package com.example.pochekuev.myapplication.adapter;
+package com.redhawk.pochekuev.sibadirasp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.pochekuev.myapplication.R;
-import com.example.pochekuev.myapplication.items.Lessons;
+import com.redhawk.pochekuev.sibadirasp.R;
+import com.redhawk.pochekuev.sibadirasp.items.Lessons;
 
 import java.util.List;
 

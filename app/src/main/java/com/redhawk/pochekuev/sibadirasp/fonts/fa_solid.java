@@ -1,10 +1,8 @@
-package com.example.pochekuev.myapplication.fonts;
+package com.redhawk.pochekuev.sibadirasp.fonts;
 
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.widget.TextView;
 
 public class fa_solid extends android.support.v7.widget.AppCompatTextView {
 
