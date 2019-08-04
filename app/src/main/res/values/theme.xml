@@ -10,7 +10,7 @@
         <item name="colorTextColor">#EEEEEE</item>
         <item name="colorNavDrawSelect">#7019e8</item>
         <item name="android:statusBarColor">?attr/colorPrimaryDark</item>
-        <item name="android:colorBackground">?attr/colorBackgroundFragmentSecond</item>
+        <item name="android:colorBackground">#333333</item>
     </style>
 
     <style name="AppTheme.BlueTheme" parent="Theme.AppCompat.Light.NoActionBar">

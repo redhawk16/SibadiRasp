@@ -15,7 +15,7 @@ import java.util.List;
  * Created by NgocTri on 11/7/2015.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DBNAME = "info.db";
+    public static final String DBNAME = "test.db";
     public static final String DBLOCATION = "/data/data/com.redhawk.pochekuev.sibadirasp/databases/";
     private Context mContext;
     private SQLiteDatabase mDatabase;

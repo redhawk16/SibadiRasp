@@ -30,8 +30,8 @@ public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
                 + "INNER JOIN Subgroups ON Schedules.Code_Subgroup=Subgroups.Code_Subgroup "
                 + "INNER JOIN Groups ON Schedules.Code_Group=Groups.Code_Group "
                 + "INNER JOIN Faculties ON Schedules.Code_Faculty=Faculties.Code_Faculty "
-                + "WHERE Name_Typeweek='"+LessonsFragment.selectedWeek+"' "
-                + "AND (Name_Subgroup='обе подгруппы' OR Num_Subgroup='"+LessonsFragment.selectedSubgroup+"') "
+                + "WHERE (Name_Typeweek='"+LessonsFragment.selectedWeek+"' OR Name_Typeweek='обе недели') "
+                //+ "AND (Name_Subgroup='обе подгруппы' OR Num_Subgroup='"+LessonsFragment.selectedSubgroup+"') "
                 + "AND Num_Dayweek='"+position+"' ORDER BY Time_Start, Time_End";
         switch (position){
             case 0:
